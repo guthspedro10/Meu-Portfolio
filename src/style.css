@@ -1,96 +1,138 @@
+/* 1. Rolagem Suave (para a navegação pelos botões) */
+html {
+    scroll-behavior: smooth; 
+}
+
+/* 2. Configuração do Background Fixo (Efeito Parallax) */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
     background-color: #f4f4f4; /* Cor de fallback caso a imagem não carregue */
 
     /* Adiciona a imagem de fundo */
-    background-image: url(/img_certa.png); /* Substitua 'city_night.jpg' pelo nome e caminho corretos da sua imagem */
+    background-image: url('/img_teste.jpg'); /* Substitua pelo nome e caminho corretos da sua imagem */
     background-size: cover; /* Faz a imagem cobrir toda a área do body */
-    background-position: center; /* Centraliza a imagem */
+    
+    /* LINHA CORRIGIDA PARA MOSTRAR MAIS A PARTE INFERIOR (TECLADO) */
+    background-position: center bottom; 
+    
     background-repeat: no-repeat; /* Evita que a imagem se repita */
-    background-attachment: fixed; /* Mantém a imagem fixa ao rolar a página */
-    color: #fff; /* Muda a cor do texto padrão para branco para contrastar com o fundo escuro */
+    background-attachment: fixed; /* MÁGICA: Mantém a imagem fixa ao rolar a página */
+    
+    /* Estilos de Tipografia */
+    color: #fff; 
     font-family: "Montserrat", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: light;
-    font-style: normal;
+    font-weight: 300; /* Usei 300 (light) como padrão */
 }
 
-/* Estilização do Cabeçalho */
+/* 3. Estilização do Conteúdo da Primeira Seção (Substitui o seu antigo 'main') */
+.secao-principal {
+    min-height: 90vh; 
+    padding-top: 80px; 
+    display: flex;
+    align-items: center; /* Centraliza verticalmente o main-content */
+    padding-left: 10%; /* Ajuste essa porcentagem para mover mais para a esquerda */
+    position: relative; /* Necessário para posicionar .social-icons absolutamente dentro dela */
+}
+
+.main-content {
+    /* Ajustes para o seu estilo de texto centralizado */
+    width: auto; 
+    max-width: 800px;
+    margin-right: auto; /* Empurra o conteúdo para a esquerda se houver espaço */
+    /* Você pode adicionar padding-left aqui se precisar de mais recuo no texto */
+    padding-left: 50px;
+}
+
+/* Estiliza o nome "PEDRO" */
+.main-content h2 {
+    font-size: 3em; 
+    font-weight: 200; 
+    margin: 0;
+    padding-left: 8px; /* Ajuste para o alinhamento desejado */
+    padding-bottom: 17px;
+}
+
+/* Estiliza o sobrenome "GUTHS" - o maior elemento */
+.main-content h1 {
+    font-size: 8em; 
+    font-weight: 700;
+    margin: 0;
+    line-height: 0.6; /* Diminui o espaçamento entre h2 e h1 */
+}
+
+/* Estiliza a profissão "Desenvolvedor Backend" */
+.main-content h3 {
+    font-size: 1.5em; 
+    font-weight: 300;
+    letter-spacing: 0.2em; 
+    padding-left: 8px; /* Ajuste para o alinhamento desejado */
+
+}
+
+/* 4. Estilização dos Ícones Sociais */
+.social-icons {
+    position: absolute; /* Posição absoluta em relação à secao-principal */
+    bottom: 50px; /* Distância do rodapé, ajuste conforme a imagem */
+    right: 50px; /* Distância da direita, ajuste conforme a imagem */
+    display: flex; 
+    gap: 20px; /* Espaçamento entre os ícones */
+    font-size: 1.5em; /* Tamanho dos ícones, ajuste se necessário */
+}
+
+.social-icons a {
+    color: #fff; 
+    transition: color 0.3s ease;
+}
+
+
+/* 5. Estilização das demais seções roláveis */
+.secao-conteudo {
+    min-height: 100vh; 
+    padding: 50px 50px;
+    padding-top: 80px; /* Compensação para o header fixo */
+    
+    color: white; 
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+    
+    background-color: rgba(0, 0, 0, 0.6); 
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* 6. Estilização do Cabeçalho e Navegação (Header Fixo) */
 header {
-    padding: 15px 20px; /* Preenchimento em cima/baixo e laterais */
-    display: flex; /* Habilita Flexbox */
-    justify-content: flex-end; /* Alinha o conteúdo (div.lista) à direita */
-    align-items: center; /* Centraliza verticalmente se houver outros elementos */
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fonte moderna */
+    position: fixed; 
+    padding-top: 20px;
+    left: 0;
+    width: 100%;
+    padding: 15px 20px; 
+    display: flex; 
+    justify-content: flex-end; 
+    align-items: center; 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    z-index: 1000; 
 }
 
-/* Estilização da lista de navegação */
 .lista ul {
-    list-style: none; /* Remove os marcadores de lista */
-    padding: 0; /* Remove o preenchimento padrão da ul */
-    margin: 0; /* Remove a margem padrão da ul */
-    display: flex; /* Habilita Flexbox para a lista */
-    gap: 80px; /* Espaçamento entre os itens da lista */
-    padding: 20px;
+    list-style: none;
+    padding-top: 20px;
+    padding-right: 100px;
+    display: flex;
+    gap: 80px;
+    font-weight: 350;
 }
 
 /* Estilização dos links */
 .lista a {
-    color: #fff; /* Cor do texto branca */
-    text-decoration: none; /* Remove o sublinhado padrão dos links */
-    font-size: 1.1em; /* Tamanho da fonte */
-    padding-bottom: 5px; /* Espaço para a linha de baixo não colar no texto */
-    position: relative; /* Necessário para posicionar a linha */
-    transition: color 0.3s ease; /* Transição suave na mudança de cor, se houver */
-}
-
-
-/*
- * IMPORTANTE: Para ter a fonte exata da imagem, você precisaria de uma
- * font-family específica (como a 'Bebas Neue' ou similar) e talvez importá-la
- * do Google Fonts. No entanto, vou usar 'Impact' como um substituto simples
- * que é comum e tem um estilo similar de letras largas e condensadas.
- */
-
-/* Estilos para o Main (centraliza e posiciona os textos) */
-/*
- * IMPORTANTE: Para replicar o estilo de fontes largas e condensadas da imagem,
- * vou usar 'Impact' para 'PEDRO' e 'GUTHS'.
- */
-
-/* Estilos para o Main (centraliza e posiciona os textos) */
-main {
-    text-align: left;
-    position: absolute; 
-    top: 55%; 
-    left: 25%; 
-    transform: translate(-50%, -50%); 
-    line-height: 0.75; 
-    color: #fff; 
-}
-
-/* Estiliza o nome "PEDRO" */
-main h2 {
-    font-size: 3em; 
-    font-weight: 200; 
-    margin: 0;
-    padding-left: 8px;
-    padding-bottom: 17px;
-
-}
-
-/* Estiliza o sobrenome "GUTHS" - o maior elemento */
-main h1 {
-    font-size: 8em; 
-    font-weight: 700; /* Quase sempre é negrito máximo */
-    margin: 0;
-}
-
-/* Estiliza a profissão "Desenvolvedor Backend" */
-main h3 {
-    font-size: 1.5em; 
-    font-weight: 300; /* Um peso bem leve (se a fonte suportar) */
-    letter-spacing: 0.2em; 
-    padding-left: 8px; /* Ajustei para 0 ou o valor que centraliza melhor */
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1em;
+    padding-bottom: 5px;
+    position: relative;
+    transition: color 0.3s ease;
 }
