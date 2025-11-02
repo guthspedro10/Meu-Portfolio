@@ -1,0 +1,96 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4; /* Cor de fallback caso a imagem não carregue */
+
+    /* Adiciona a imagem de fundo */
+    background-image: url(/img_certa.png); /* Substitua 'city_night.jpg' pelo nome e caminho corretos da sua imagem */
+    background-size: cover; /* Faz a imagem cobrir toda a área do body */
+    background-position: center; /* Centraliza a imagem */
+    background-repeat: no-repeat; /* Evita que a imagem se repita */
+    background-attachment: fixed; /* Mantém a imagem fixa ao rolar a página */
+    color: #fff; /* Muda a cor do texto padrão para branco para contrastar com o fundo escuro */
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: light;
+    font-style: normal;
+}
+
+/* Estilização do Cabeçalho */
+header {
+    padding: 15px 20px; /* Preenchimento em cima/baixo e laterais */
+    display: flex; /* Habilita Flexbox */
+    justify-content: flex-end; /* Alinha o conteúdo (div.lista) à direita */
+    align-items: center; /* Centraliza verticalmente se houver outros elementos */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fonte moderna */
+}
+
+/* Estilização da lista de navegação */
+.lista ul {
+    list-style: none; /* Remove os marcadores de lista */
+    padding: 0; /* Remove o preenchimento padrão da ul */
+    margin: 0; /* Remove a margem padrão da ul */
+    display: flex; /* Habilita Flexbox para a lista */
+    gap: 80px; /* Espaçamento entre os itens da lista */
+    padding: 20px;
+}
+
+/* Estilização dos links */
+.lista a {
+    color: #fff; /* Cor do texto branca */
+    text-decoration: none; /* Remove o sublinhado padrão dos links */
+    font-size: 1.1em; /* Tamanho da fonte */
+    padding-bottom: 5px; /* Espaço para a linha de baixo não colar no texto */
+    position: relative; /* Necessário para posicionar a linha */
+    transition: color 0.3s ease; /* Transição suave na mudança de cor, se houver */
+}
+
+
+/*
+ * IMPORTANTE: Para ter a fonte exata da imagem, você precisaria de uma
+ * font-family específica (como a 'Bebas Neue' ou similar) e talvez importá-la
+ * do Google Fonts. No entanto, vou usar 'Impact' como um substituto simples
+ * que é comum e tem um estilo similar de letras largas e condensadas.
+ */
+
+/* Estilos para o Main (centraliza e posiciona os textos) */
+/*
+ * IMPORTANTE: Para replicar o estilo de fontes largas e condensadas da imagem,
+ * vou usar 'Impact' para 'PEDRO' e 'GUTHS'.
+ */
+
+/* Estilos para o Main (centraliza e posiciona os textos) */
+main {
+    text-align: left;
+    position: absolute; 
+    top: 55%; 
+    left: 25%; 
+    transform: translate(-50%, -50%); 
+    line-height: 0.75; 
+    color: #fff; 
+}
+
+/* Estiliza o nome "PEDRO" */
+main h2 {
+    font-size: 3em; 
+    font-weight: 200; 
+    margin: 0;
+    padding-left: 8px;
+    padding-bottom: 17px;
+
+}
+
+/* Estiliza o sobrenome "GUTHS" - o maior elemento */
+main h1 {
+    font-size: 8em; 
+    font-weight: 700; /* Quase sempre é negrito máximo */
+    margin: 0;
+}
+
+/* Estiliza a profissão "Desenvolvedor Backend" */
+main h3 {
+    font-size: 1.5em; 
+    font-weight: 300; /* Um peso bem leve (se a fonte suportar) */
+    letter-spacing: 0.2em; 
+    padding-left: 8px; /* Ajustei para 0 ou o valor que centraliza melhor */
+}
