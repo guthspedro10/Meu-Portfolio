@@ -2,7 +2,6 @@
 html {
     scroll-behavior: smooth; 
 }
-
 /* 2. Configuração do Background Fixo (Efeito Parallax) */
 body {
     margin: 0;
@@ -10,7 +9,7 @@ body {
     background-color: #f4f4f4; /* Cor de fallback caso a imagem não carregue */
 
     /* Adiciona a imagem de fundo */
-    background-image: url('/img_teste.jpg'); /* Substitua pelo nome e caminho corretos da sua imagem */
+    background-image: url('/img/img_teste.jpg'); /* Substitua pelo nome e caminho corretos da sua imagem */
     background-size: cover; /* Faz a imagem cobrir toda a área do body */
     
     /* LINHA CORRIGIDA PARA MOSTRAR MAIS A PARTE INFERIOR (TECLADO) */
@@ -24,7 +23,6 @@ body {
     font-family: "Montserrat", sans-serif;
     font-weight: 300; /* Usei 300 (light) como padrão */
 }
-
 /* 3. Estilização do Conteúdo da Primeira Seção (Substitui o seu antigo 'main') */
 .secao-principal {
     min-height: 90vh; 
@@ -34,7 +32,6 @@ body {
     padding-left: 10%; /* Ajuste essa porcentagem para mover mais para a esquerda */
     position: relative; /* Necessário para posicionar .social-icons absolutamente dentro dela */
 }
-
 .main-content {
     /* Ajustes para o seu estilo de texto centralizado */
     width: auto; 
@@ -43,7 +40,6 @@ body {
     /* Você pode adicionar padding-left aqui se precisar de mais recuo no texto */
     padding-left: 50px;
 }
-
 /* Estiliza o nome "PEDRO" */
 .main-content h2 {
     font-size: 3em; 
@@ -52,7 +48,6 @@ body {
     padding-left: 8px; /* Ajuste para o alinhamento desejado */
     padding-bottom: 17px;
 }
-
 /* Estiliza o sobrenome "GUTHS" - o maior elemento */
 .main-content h1 {
     font-size: 8em; 
@@ -60,7 +55,6 @@ body {
     margin: 0;
     line-height: 0.6; /* Diminui o espaçamento entre h2 e h1 */
 }
-
 /* Estiliza a profissão "Desenvolvedor Backend" */
 .main-content h3 {
     font-size: 1.5em; 
@@ -69,23 +63,28 @@ body {
     padding-left: 8px; /* Ajuste para o alinhamento desejado */
 
 }
-
-/* 4. Estilização dos Ícones Sociais */
+/* 4. Estilização dos Ícones Sociais (Fixos na tela) */
 .social-icons {
-    position: absolute; /* Posição absoluta em relação à secao-principal */
-    bottom: 50px; /* Distância do rodapé, ajuste conforme a imagem */
-    right: 50px; /* Distância da direita, ajuste conforme a imagem */
+    position: absolute; 
+    bottom: 30px; 
+    padding-right: 30px; 
     display: flex; 
-    gap: 20px; /* Espaçamento entre os ícones */
-    font-size: 1.5em; /* Tamanho dos ícones, ajuste se necessário */
+    flex-direction: row; 
+    gap: 17px; 
+    font-size: 1.5em; 
+    z-index: 999; 
+    right: 70px; /* Distância da direita, ajuste conforme a imagem */
 }
-
 .social-icons a {
     color: #fff; 
-    transition: color 0.3s ease;
+    /* Adiciona transição para cor e movimento */
+    transition: color 0.2s ease, transform 0.5s ease; 
 }
-
-
+/* Aplicando o destaque (Mudança de Cor + Salto) */
+.social-icons a:hover {
+    color: #818e90; /* Cor de destaque (ex: ciano) */
+    transform: translateY(-5px); /* Move o ícone 5px para cima */
+}
 /* 5. Estilização das demais seções roláveis */
 .secao-conteudo {
     min-height: 100vh; 
@@ -103,21 +102,18 @@ body {
     align-items: center;
     text-align: center;
 }
-
 /* 6. Estilização do Cabeçalho e Navegação (Header Fixo) */
 header {
     position: fixed; 
     padding-top: 20px;
     left: 0;
-    width: 100%;
-    padding: 15px 20px; 
+    width: 100%; 
     display: flex; 
     justify-content: flex-end; 
     align-items: center; 
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    font-family: "Montserrat", sans-serif;
     z-index: 1000; 
 }
-
 .lista ul {
     list-style: none;
     padding-top: 20px;
@@ -126,7 +122,6 @@ header {
     gap: 80px;
     font-weight: 350;
 }
-
 /* Estilização dos links */
 .lista a {
     color: #fff;
@@ -136,3 +131,25 @@ header {
     position: relative;
     transition: color 0.3s ease;
 }
+/* Efeito de linha ao passar o mouse */
+.lista a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    
+    /* ESTAS PROPRIEDADES GARANTEM A CENTRALIZAÇÃO INICIAL E FINAL */
+    left: 50%; 
+    transform: translateX(-50%); 
+    
+    background-color: #fff;
+    /* CORREÇÃO: Removida a transição 'left' para evitar o bug */
+    transition: width 0.3s ease; 
+}
+.lista a:hover::after {
+    width: 100%;
+}
+
+
+
