@@ -89,8 +89,10 @@ body {
 /* 5. Estilização das demais seções roláveis */
 .secao-conteudo {
     min-height: 100vh; 
-    padding: 50px 50px;
-    padding-top: 20px; /* Compensação para o header fixo */
+    
+    /* CORREÇÃO: Removido o padding-top excessivo. 
+       A rolagem agora dependerá apenas do scroll-padding-top e do padding-bottom */
+    padding: 0 50px 50px 50px; 
     
     color: white; 
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
@@ -166,7 +168,9 @@ header {
     justify-content: space-between; /* Distribui o espaço entre os itens */
     align-items: flex-start; /* Alinha os itens no topo */
     gap: 20px; /* Adiciona um espaço entre os containers de texto e foto */
-    padding-top: 20px;
+    padding-top: 10px;
+    padding-left: 20px;
+
 }
 
 .sobre-mim-texto {
@@ -243,4 +247,133 @@ header {
 /* Efeito opcional ao passar o mouse */
 .tecnologias img:hover {
     transform: scale(1.1); /* Aumenta ligeiramente o ícone ao passar o mouse */
+}
+
+/* --- ESTILOS PARA A SEÇÃO DE TRABALHOS (CARDS) --- */
+
+.trabalhos-container {
+    /* Ativa o Flexbox */
+    display: flex;
+    /* Permite que os cards quebrem para a próxima linha se não houver espaço */
+    flex-wrap: wrap; 
+    /* Centraliza os cards horizontalmente */
+    justify-content: center; 
+    /* Adiciona espaço acima e abaixo do container de cards */
+    padding-top: 100px;
+    /* Define uma largura máxima para o container, centralizando-o */
+    max-width: 1200px; 
+    width: 100%;
+    gap: 30px; /* Espaço entre os cards */
+}
+
+.card-trabalho {
+    /* Define o tamanho base de cada card (aproximadamente 3 cards por linha no max-width) */
+    width: 300px; 
+    /* Fundo semi-transparente para destaque */
+    background-color: rgba(255, 255, 255, 0.1); 
+    /* Borda suavemente arredondada */
+    border-radius: 10px; 
+    /* Sombra para efeito de profundidade */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); 
+    /* Padding interno */
+    padding: 20px; 
+    /* Centraliza o texto dentro do card */
+    text-align: center; 
+    /* Adiciona uma transição suave para efeitos de hover */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Garante que o conteúdo quebre conforme necessário */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Efeito ao passar o mouse */
+.card-trabalho:hover {
+    /* Eleva o card levemente */
+    transform: translateY(-5px); 
+    /* Sombra mais intensa */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.8);
+}
+
+.card-image {
+    /* Placeholder para a imagem do projeto */
+    background-color: rgba(255, 255, 255, 0.15); 
+    height: 150px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ccc;
+    font-style: italic;
+    font-size: 0.9em;
+}
+
+.card-trabalho h3 {
+    font-size: 1.5em;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.card-trabalho p {
+    font-size: 0.9em;
+    color: #ccc;
+    margin-bottom: 15px;
+    /* Faz a descrição ocupar o espaço e empurrar o botão para baixo */
+    flex-grow: 1; 
+}
+
+/* Estilização das tags de tecnologia */
+.card-tecnologias {
+    margin: 10px 0 20px 0;
+}
+
+.card-tecnologias span {
+    display: inline-block;
+    background-color: #818e90; /* Cor de destaque */
+    color: #000;
+    font-size: 0.75em;
+    padding: 4px 8px;
+    border-radius: 5px;
+    margin: 3px;
+    font-weight: 500;
+}
+
+/* Estilo do botão dentro do card */
+.btn-projeto {
+    display: inline-block;
+    background-color: #fff;
+    color: #000;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.btn-projeto:hover {
+    background-color: #818e90; /* Cor de destaque no hover */
+}
+
+/* Correção para garantir que o h2 da seção "Trabalhos" não seja centralizado horizontalmente */
+.secao-conteudo h2 {
+    margin-bottom: 30px;
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+    .card-trabalho {
+        /* Permite que o card ocupe mais espaço em telas menores */
+        width: 100%; 
+        max-width: 400px;
+    }
+}
+
+.secao-conteudo h2 {
+    visibility: hidden; /* Torna o elemento invisível */
+    height: 0;          /* Remove a altura */
+    margin: 0;          /* Remove as margens */
+    padding: 0;         /* Remove o padding */
+    /* Você pode usar display: none; também, mas visibility: hidden; é mais seguro para manter o fluxo
+       em certos casos, embora aqui display: none; provavelmente funcionaria bem. */
+    display: none;
 }
