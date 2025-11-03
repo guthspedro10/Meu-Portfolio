@@ -377,3 +377,52 @@ header {
        em certos casos, embora aqui display: none; provavelmente funcionaria bem. */
     display: none;
 }
+
+/* --- ESTILOS PARA A SEÇÃO DE CONTATO --- */
+
+.contato-info-container {
+    /* Container para alinhar os itens de contato em coluna */
+    display: flex;
+    flex-direction: column;
+    gap: 25px; /* Espaço entre cada item de contato */
+    max-width: 500px;
+    width: 100%;
+    text-align: left;
+}
+
+.contato-item {
+    /* Item de contato (ícone + link) */
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-size: 1.2em;
+    padding: 15px;
+    /* Fundo sutil para destacar cada item */
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.contato-item i {
+    /* Estilo para os ícones (envelope, LinkedIn, etc.) */
+    font-size: 1.5em;
+    color: #818e90; /* Cor de destaque (ciano/cinza claro) */
+    min-width: 30px; 
+    text-align: center;
+}
+
+.contato-item a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 400;
+    transition: color 0.3s ease;
+}
+
+/* Efeito Hover */
+.contato-item:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.contato-item a:hover {
+    color: #818e90;
+}
