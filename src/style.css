@@ -42,7 +42,7 @@ body {
 }
 /* Estiliza o nome "PEDRO" */
 .main-content h2 {
-    font-size: 3em; 
+    font-size: 2em; 
     font-weight: 200; 
     margin: 0;
     padding-left: 8px; /* Ajuste para o alinhamento desejado */
@@ -50,7 +50,7 @@ body {
 }
 /* Estiliza o sobrenome "GUTHS" - o maior elemento */
 .main-content h1 {
-    font-size: 8em; 
+    font-size: 7em; 
     font-weight: 700;
     margin: 0;
     line-height: 0.6; /* Diminui o espaçamento entre h2 e h1 */
@@ -67,7 +67,8 @@ body {
 .social-icons {
     position: absolute; 
     bottom: 30px; 
-    padding-right: 30px; 
+    padding-right: 30px;
+    padding-bottom: 10px; 
     display: flex; 
     flex-direction: row; 
     gap: 17px; 
@@ -89,7 +90,7 @@ body {
 .secao-conteudo {
     min-height: 100vh; 
     padding: 50px 50px;
-    padding-top: 80px; /* Compensação para o header fixo */
+    padding-top: 20px; /* Compensação para o header fixo */
     
     color: white; 
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
@@ -150,6 +151,96 @@ header {
 .lista a:hover::after {
     width: 100%;
 }
+.minha.foto {
+    width: 250px;
+    border-radius: 200px;
+    margin-top: 20px;
+}
+
+/* CSS para o Layout de Duas Colunas (Adicione em style.css) */
+
+.sobre-mim-conteudo {
+    /* 1. Ativa o Flexbox no container pai */
+    display: flex;
+    /* 2. Garante que os itens fiquem alinhados horizontalmente */
+    justify-content: space-between; /* Distribui o espaço entre os itens */
+    align-items: flex-start; /* Alinha os itens no topo */
+    gap: 20px; /* Adiciona um espaço entre os containers de texto e foto */
+    padding-top: 20px;
+}
+
+.sobre-mim-texto {
+    /* 3. Ocupa uma parte do espaço (Ex: 60%) */
+    flex: 1; /* Permite que o texto cresça e ocupe o espaço disponível, de forma equilibrada com a foto */
+    max-width: 60%; /* Define um limite para o texto */
+    text-align: justify;
+}
+
+.sobre-mim-foto {
+    /* 4. Ocupa a parte restante do espaço (Ex: 40%) */
+    flex: 1; /* Permite que a foto cresça e ocupe o espaço disponível */
+    max-width: 40%; /* Define um limite para a foto */
+    text-align: center; /* Centraliza a imagem se ela for menor que o container */
+}
+
+/* Garante que a imagem se ajuste ao tamanho do seu container */
+.sobre-mim-foto img {
+    max-width: 100%;
+    height: 350px;
+    /* Estilos adicionais para a foto (opcional) */
+    border-radius: 300px; /* Exemplo: cantos arredondados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Exemplo: sombra sutil */
+}
 
 
+/* ---------------------------------------------------------------- */
+/* Opcional: Responsividade para Telas Menores */
+/* Faz os itens ficarem um abaixo do outro em telas de celular */
+@media (max-width: 768px) {
+    .sobre-mim-conteudo {
+        flex-direction: column; /* Altera a direção para vertical */
+        align-items: center; /* Centraliza os itens na tela menor */
+    }
 
+    .sobre-mim-texto, .sobre-mim-foto {
+        max-width: 100%; /* Ocupam a largura total */
+    }
+}
+
+/* --- ESTILOS PARA AS TECNOLOGIAS EM ICONES --- */
+
+.tecnologias ul {
+    /* 1. Remove os marcadores de lista padrão */
+    list-style: none; 
+    /* 2. Remove o preenchimento/margem padrão da lista */
+    padding: 0; 
+    margin: 10px 0 0 0; 
+    
+    /* 3. Ativa o Flexbox para alinhar os itens da lista horizontalmente */
+    display: flex;
+    /* 4. Adiciona um pequeno espaço entre os ícones */
+    gap: 15px; 
+    /* 5. Garante que os ícones fiquem na mesma linha */
+    align-items: center; 
+    padding-left: 15%;
+}
+
+.tecnologias li {
+    /* Não é estritamente necessário, mas garante que a lista de itens não ocupe espaço desnecessário */
+    display: inline-block; 
+}
+
+.tecnologias img {
+    /* Define um tamanho fixo e pequeno para todos os ícones */
+    width: 40px; /* Altere este valor para aumentar ou diminuir o tamanho dos ícones */
+    height: 40px;
+    object-fit: contain; /* Garante que a imagem não seja cortada ao ser redimensionada */
+    
+    /* Estilo opcional: Adiciona um pequeno efeito de transição ao passar o mouse */
+    transition: transform 0.2s ease-in-out;
+}
+
+/* Efeito opcional ao passar o mouse */
+.tecnologias img:hover {
+    transform: scale(1.1); /* Aumenta ligeiramente o ícone ao passar o mouse */
+}
