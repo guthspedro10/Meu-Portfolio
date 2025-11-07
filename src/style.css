@@ -1,121 +1,96 @@
-/* 1. Rolagem Suave (para a navegação pelos botões) */
 html {
-    scroll-behavior: smooth; 
+    scroll-behavior: smooth;
 }
-/* 2. Configuração do Background Fixo (Efeito Parallax) */
+
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4; /* Cor de fallback caso a imagem não carregue */
-
-    /* Adiciona a imagem de fundo */
-    background-image: url("/Meu-Portfolio/img/img_teste.jpg"); /* Substitua pelo nome e caminho corretos da sua imagem */
-    background-size: cover; /* Faz a imagem cobrir toda a área do body */
-    
-    /* LINHA CORRIGIDA PARA MOSTRAR MAIS A PARTE INFERIOR (TECLADO) */
-    background-position: center bottom; 
-    
-    background-repeat: no-repeat; /* Evita que a imagem se repita */
-    background-attachment: fixed; /* MÁGICA: Mantém a imagem fixa ao rolar a página */
-    
-    /* Estilos de Tipografia */
-    color: #fff; 
+    background-color: #f4f4f4;
+    background-image: url("/Meu-Portfolio/img/img_teste.jpg");
+    background-size: cover;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #fff;
     font-family: "Montserrat", sans-serif;
-    font-weight: 300; /* Usei 300 (light) como padrão */
+    font-weight: 300;
 }
-/* 3. Estilização do Conteúdo da Primeira Seção (Substitui o seu antigo 'main') */
+
 .secao-principal {
-    min-height: 90vh; 
-    padding-top: 80px; 
+    min-height: 90vh;
+    padding-top: 80px;
     display: flex;
-    align-items: center; /* Centraliza verticalmente o main-content */
-    padding-left: 10%; /* Ajuste essa porcentagem para mover mais para a esquerda */
-    position: relative; /* Necessário para posicionar .social-icons absolutamente dentro dela */
+    align-items: center;
+    padding-left: 10%;
+    position: relative;
 }
 .main-content {
-    /* Ajustes para o seu estilo de texto centralizado */
-    width: auto; 
+    width: auto;
     max-width: 800px;
-    margin-right: auto; /* Empurra o conteúdo para a esquerda se houver espaço */
-    /* Você pode adicionar padding-left aqui se precisar de mais recuo no texto */
+    margin-right: auto;
     padding-left: 50px;
 }
-/* Estiliza o nome "PEDRO" */
 .main-content h2 {
-    font-size: 2em; 
-    font-weight: 200; 
+    font-size: 2em;
+    font-weight: 200;
     margin: 0;
-    padding-left: 8px; /* Ajuste para o alinhamento desejado */
+    padding-left: 8px;
     padding-bottom: 17px;
 }
-/* Estiliza o sobrenome "GUTHS" - o maior elemento */
 .main-content h1 {
-    font-size: 7em; 
+    font-size: 7em;
     font-weight: 700;
     margin: 0;
-    line-height: 0.6; /* Diminui o espaçamento entre h2 e h1 */
+    line-height: 0.6;
 }
-/* Estiliza a profissão "Desenvolvedor Backend" */
 .main-content h3 {
-    font-size: 1.5em; 
+    font-size: 1.5em;
     font-weight: 300;
-    letter-spacing: 0.2em; 
-    padding-left: 8px; /* Ajuste para o alinhamento desejado */
-
+    letter-spacing: 0.2em;
+    padding-left: 8px;
 }
-/* 4. Estilização dos Ícones Sociais (Fixos na tela) */
 .social-icons {
-    position: absolute; 
-    bottom: 30px; 
+    position: absolute;
+    bottom: 30px;
     padding-right: 30px;
-    padding-bottom: 10px; 
-    display: flex; 
-    flex-direction: row; 
-    gap: 17px; 
-    font-size: 1.5em; 
-    z-index: 999; 
-    right: 70px; /* Distância da direita, ajuste conforme a imagem */
+    padding-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+    gap: 17px;
+    font-size: 1.5em;
+    z-index: 999;
+    right: 70px;
 }
 .social-icons a {
-    color: #fff; 
-    /* Adiciona transição para cor e movimento */
-    transition: color 0.2s ease, transform 0.5s ease; 
+    color: #fff;
+    transition: color 0.2s ease, transform 0.5s ease;
 }
-/* Aplicando o destaque (Mudança de Cor + Salto) */
 .social-icons a:hover {
-    color: #818e90; /* Cor de destaque (ex: ciano) */
-    transform: translateY(-5px); /* Move o ícone 5px para cima */
+    color: #818e90;
+    transform: translateY(-5px);
 }
-/* 5. Estilização das demais seções roláveis */
 .secao-conteudo {
-    min-height: 100vh; 
-    
-    /* CORREÇÃO: Removido o padding-top excessivo. 
-       A rolagem agora dependerá apenas do scroll-padding-top e do padding-bottom */
-    padding: 0 50px 50px 50px; 
-    
-    color: white; 
+    min-height: 100vh;
+    padding: 0 50px 50px 50px;
+    color: white;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
-    
-    background-color: rgba(0, 0, 0, 0.6); 
-
+    background-color: rgba(0, 0, 0, 0.6);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
 }
-/* 6. Estilização do Cabeçalho e Navegação (Header Fixo) */
 header {
-    position: fixed; 
+    position: fixed;
     padding-top: 20px;
     left: 0;
-    width: 100%; 
-    display: flex; 
-    justify-content: flex-end; 
-    align-items: center; 
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
     font-family: "Montserrat", sans-serif;
-    z-index: 1000; 
+    z-index: 1000;
 }
 .lista ul {
     list-style: none;
@@ -125,7 +100,6 @@ header {
     gap: 80px;
     font-weight: 350;
 }
-/* Estilização dos links */
 .lista a {
     color: #fff;
     text-decoration: none;
@@ -134,21 +108,16 @@ header {
     position: relative;
     transition: color 0.3s ease;
 }
-/* Efeito de linha ao passar o mouse */
 .lista a::after {
     content: '';
     position: absolute;
     width: 0;
     height: 2px;
     bottom: 0;
-    
-    /* ESTAS PROPRIEDADES GARANTEM A CENTRALIZAÇÃO INICIAL E FINAL */
-    left: 50%; 
-    transform: translateX(-50%); 
-    
+    left: 50%;
+    transform: translateX(-50%);
     background-color: #fff;
-    /* CORREÇÃO: Removida a transição 'left' para evitar o bug */
-    transition: width 0.3s ease; 
+    transition: width 0.3s ease;
 }
 .lista a:hover::after {
     width: 100%;
@@ -159,144 +128,99 @@ header {
     margin-top: 20px;
 }
 
-/* CSS para o Layout de Duas Colunas (Adicione em style.css) */
-
 .sobre-mim-conteudo {
-    /* 1. Ativa o Flexbox no container pai */
     display: flex;
-    /* 2. Garante que os itens fiquem alinhados horizontalmente */
-    justify-content: space-between; /* Distribui o espaço entre os itens */
-    align-items: flex-start; /* Alinha os itens no topo */
-    gap: 20px; /* Adiciona um espaço entre os containers de texto e foto */
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
     padding-top: 10px;
     padding-left: 20px;
-
 }
 
 .sobre-mim-texto {
-    /* 3. Ocupa uma parte do espaço (Ex: 60%) */
-    flex: 1; /* Permite que o texto cresça e ocupe o espaço disponível, de forma equilibrada com a foto */
-    max-width: 60%; /* Define um limite para o texto */
+    flex: 1;
+    max-width: 60%;
     text-align: justify;
 }
 
 .sobre-mim-foto {
-    /* 4. Ocupa a parte restante do espaço (Ex: 40%) */
-    flex: 1; /* Permite que a foto cresça e ocupe o espaço disponível */
-    max-width: 40%; /* Define um limite para a foto */
-    text-align: center; /* Centraliza a imagem se ela for menor que o container */
+    flex: 1;
+    max-width: 40%;
+    text-align: center;
 }
 
-/* Garante que a imagem se ajuste ao tamanho do seu container */
 .sobre-mim-foto img {
     max-width: 100%;
     height: 350px;
-    /* Estilos adicionais para a foto (opcional) */
-    border-radius: 300px; /* Exemplo: cantos arredondados */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Exemplo: sombra sutil */
+    border-radius: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-
-/* ---------------------------------------------------------------- */
-/* Opcional: Responsividade para Telas Menores */
-/* Faz os itens ficarem um abaixo do outro em telas de celular */
 @media (max-width: 768px) {
     .sobre-mim-conteudo {
-        flex-direction: column; /* Altera a direção para vertical */
-        align-items: center; /* Centraliza os itens na tela menor */
+        flex-direction: column;
+        align-items: center;
     }
 
     .sobre-mim-texto, .sobre-mim-foto {
-        max-width: 100%; /* Ocupam a largura total */
+        max-width: 100%;
     }
 }
 
-/* --- ESTILOS PARA AS TECNOLOGIAS EM ICONES --- */
-
 .tecnologias ul {
-    /* 1. Remove os marcadores de lista padrão */
-    list-style: none; 
-    /* 2. Remove o preenchimento/margem padrão da lista */
-    padding: 0; 
-    margin: 10px 0 0 0; 
-    
-    /* 3. Ativa o Flexbox para alinhar os itens da lista horizontalmente */
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 0 0;
     display: flex;
-    /* 4. Adiciona um pequeno espaço entre os ícones */
-    gap: 15px; 
-    /* 5. Garante que os ícones fiquem na mesma linha */
-    align-items: center; 
+    gap: 15px;
+    align-items: center;
     padding-left: 15%;
 }
 
 .tecnologias li {
-    /* Não é estritamente necessário, mas garante que a lista de itens não ocupe espaço desnecessário */
-    display: inline-block; 
+    display: inline-block;
 }
 
 .tecnologias img {
-    /* Define um tamanho fixo e pequeno para todos os ícones */
-    width: 40px; /* Altere este valor para aumentar ou diminuir o tamanho dos ícones */
+    width: 40px;
     height: 40px;
-    object-fit: contain; /* Garante que a imagem não seja cortada ao ser redimensionada */
-    
-    /* Estilo opcional: Adiciona um pequeno efeito de transição ao passar o mouse */
+    object-fit: contain;
     transition: transform 0.2s ease-in-out;
 }
 
-/* Efeito opcional ao passar o mouse */
 .tecnologias img:hover {
-    transform: scale(1.1); /* Aumenta ligeiramente o ícone ao passar o mouse */
+    transform: scale(1.1);
 }
 
-/* --- ESTILOS PARA A SEÇÃO DE TRABALHOS (CARDS) --- */
-
 .trabalhos-container {
-    /* Ativa o Flexbox */
     display: flex;
-    /* Permite que os cards quebrem para a próxima linha se não houver espaço */
-    flex-wrap: wrap; 
-    /* Centraliza os cards horizontalmente */
-    justify-content: center; 
-    /* Adiciona espaço acima e abaixo do container de cards */
+    flex-wrap: wrap;
+    justify-content: center;
     padding-top: 100px;
-    /* Define uma largura máxima para o container, centralizando-o */
-    max-width: 1200px; 
+    max-width: 1200px;
     width: 100%;
-    gap: 30px; /* Espaço entre os cards */
+    gap: 30px;
 }
 
 .card-trabalho {
-    /* Define o tamanho base de cada card (aproximadamente 3 cards por linha no max-width) */
-    width: 300px; 
-    /* Fundo semi-transparente para destaque */
-    background-color: rgba(255, 255, 255, 0.1); 
-    /* Borda suavemente arredondada */
-    border-radius: 10px; 
-    /* Sombra para efeito de profundidade */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); 
-    /* Padding interno */
-    padding: 20px; 
-    /* Centraliza o texto dentro do card */
-    text-align: center; 
-    /* Adiciona uma transição suave para efeitos de hover */
+    width: 300px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    /* Garante que o conteúdo quebre conforme necessário */
     display: flex;
     flex-direction: column;
 }
 
-/* Efeito ao passar o mouse */
 .card-trabalho:hover {
-    /* Eleva o card levemente */
-    transform: translateY(-5px); 
-    /* Sombra mais intensa */
+    transform: translateY(-5px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.8);
 }
 
 .card-image {
-    /* Placeholder para a imagem do projeto */
-    background-color: rgba(255, 255, 255, 0.15); 
+    background-color: rgba(255, 255, 255, 0.15);
     height: 150px;
     border-radius: 8px;
     margin-bottom: 15px;
@@ -318,18 +242,16 @@ header {
     font-size: 0.9em;
     color: #ccc;
     margin-bottom: 15px;
-    /* Faz a descrição ocupar o espaço e empurrar o botão para baixo */
-    flex-grow: 1; 
+    flex-grow: 1;
 }
 
-/* Estilização das tags de tecnologia */
 .card-tecnologias {
     margin: 10px 0 20px 0;
 }
 
 .card-tecnologias span {
     display: inline-block;
-    background-color: #818e90; /* Cor de destaque */
+    background-color: #818e90;
     color: #000;
     font-size: 0.75em;
     padding: 4px 8px;
@@ -338,7 +260,6 @@ header {
     font-weight: 500;
 }
 
-/* Estilo do botão dentro do card */
 .btn-projeto {
     display: inline-block;
     background-color: #fff;
@@ -351,63 +272,48 @@ header {
 }
 
 .btn-projeto:hover {
-    background-color: #818e90; /* Cor de destaque no hover */
+    background-color: #818e90;
 }
 
-/* Correção para garantir que o h2 da seção "Trabalhos" não seja centralizado horizontalmente */
-.secao-conteudo h2 {
-    margin-bottom: 30px;
-}
-
-/* Responsividade para telas menores */
 @media (max-width: 768px) {
     .card-trabalho {
-        /* Permite que o card ocupe mais espaço em telas menores */
-        width: 100%; 
+        width: 100%;
         max-width: 400px;
     }
 }
 
 .secao-conteudo h2 {
-    visibility: hidden; /* Torna o elemento invisível */
-    height: 0;          /* Remove a altura */
-    margin: 0;          /* Remove as margens */
-    padding: 0;         /* Remove o padding */
-    /* Você pode usar display: none; também, mas visibility: hidden; é mais seguro para manter o fluxo
-       em certos casos, embora aqui display: none; provavelmente funcionaria bem. */
+    visibility: hidden;
+    height: 0;
+    margin: 0;
+    padding: 0;
     display: none;
 }
 
-/* --- ESTILOS PARA A SEÇÃO DE CONTATO --- */
-
 .contato-info-container {
-    /* Container para alinhar os itens de contato em coluna */
     display: flex;
     flex-direction: column;
-    gap: 25px; /* Espaço entre cada item de contato */
+    gap: 25px;
     max-width: 500px;
     width: 100%;
     text-align: left;
 }
 
 .contato-item {
-    /* Item de contato (ícone + link) */
     display: flex;
     align-items: center;
     gap: 20px;
     font-size: 1.2em;
     padding: 15px;
-    /* Fundo sutil para destacar cada item */
     background-color: rgba(255, 255, 255, 0.1);
     border-radius: 8px;
     transition: background-color 0.3s ease;
 }
 
 .contato-item i {
-    /* Estilo para os ícones (envelope, LinkedIn, etc.) */
     font-size: 1.5em;
-    color: #818e90; /* Cor de destaque (ciano/cinza claro) */
-    min-width: 30px; 
+    color: #818e90;
+    min-width: 30px;
     text-align: center;
 }
 
@@ -418,7 +324,6 @@ header {
     transition: color 0.3s ease;
 }
 
-/* Efeito Hover */
 .contato-item:hover {
     background-color: rgba(255, 255, 255, 0.2);
 }
